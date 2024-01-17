@@ -1,0 +1,42 @@
+.tan {
+    background: #F0E4D2;
+}
+
+.select {
+    min-width: 40%;
+}
+
+.select-control {
+    border-radius: 40px !important;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.recipe-card {
+    background: white;
+    border-radius: 10px;
+    margin: 20px 20px;
+    padding: 20px 20px 20px 20px;
+}
+
+.recipe-title {
+    margin-top: 10px;
+}
+
+.saved-btn {
+    align-self: top;
+    height: 60px;
+    width: 40px;
+}
+
+.heart-btn {
+    margin-top: -5px;
+    margin-right: -5px;
+    margin-bottom: 6px;
+    padding: none;
+}
+
+.pot-btn {
+    margin-left: 6px;
+    padding: none;
+}
