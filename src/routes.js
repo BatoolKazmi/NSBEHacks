@@ -1,7 +1,7 @@
-import React from 'react';
+/* import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import MainPage from './MainPage';
-import SavedRecipesPage from './SavedRecipesPage';
+import MainPage from './FridgeToFoodMainPage';
+import SavedRecipesPage from './SavedRecipes';
 
 const Routes = () => {
   return (
@@ -15,3 +15,4 @@ const Routes = () => {
 };
 
 export default Routes;
+ */

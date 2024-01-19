@@ -3,14 +3,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Select, { components } from 'react-select';
 import { Link } from 'react-router-dom';
 import "./MainPage.css";
+import SavedRecipes from "./SavedRecipes";
 import validIngredients from "../assets/ingredients.txt";
 import { FiChevronDown } from "react-icons/fi";
 import { FiChevronUp } from "react-icons/fi";
 import { MdCheckCircle } from "react-icons/md";
 import { BiSolidFoodMenu } from "react-icons/bi";
 import { PiCookingPotBold } from "react-icons/pi";
-import { RiHeartAddLine } from "react-icons/ri";
-import { RiHeartAddFill } from "react-icons/ri";
+//import { RiHeartAddLine } from "react-icons/ri";
+//import { RiHeartAddFill } from "react-icons/ri";
+import ToggleButton from './ToggleButton';
 
 const ingredientsList = [
     { label: 'salt', value: 'salt' },
@@ -227,7 +229,8 @@ const recipes = [
         "prep":"10 mins",
         "servings":"4",
         "total":"10 mins",
-        "timestamp":"2024-01-14T22:09:25Z"
+        "timestamp":"2024-01-14T22:09:25Z",
+        "saved":false
     },
     {
         "url":"https://www.allrecipes.com/recipe/233761/cucumber-soup-with-tomatoes/",
@@ -955,10 +958,10 @@ const recipes = [
     }
 ]
 
-function MainPage({ onSubmit }) {
+function FridgeToFoodMainPage({ savedRecipes, setSavedRecipes }) {
     const [selectedIngredient, setSelectedIngredient] = useState(null);
     const [selectedIngredients, setSelectedIngredients] = useState([]);
-    const [savedRecipes, setSavedRecipes] = useState([]);
+    //const [savedRecipes, setSavedRecipes] = useState([]);
 
     const handleIngredientChange = (newValue, actionMeta) => {
         if (actionMeta.action === 'select-option' || actionMeta.action === 'remove-value') {
@@ -986,16 +989,16 @@ function MainPage({ onSubmit }) {
                         recipeIngredient.includes(selectedIngredient.toLowerCase())
                 )
             );
-            console.log("has selected ingredients:"+hasSelectedIngredients);
+            //console.log("has selected ingredients:"+hasSelectedIngredients);
 
             return hasSelectedIngredients;
         });
         // this is actually working!
-        console.log(filteredRecipes);
+        //console.log(filteredRecipes);
         return filteredRecipes;
     };
     
-    console.log(filteredRecipes());
+    //console.log(filteredRecipes());
     
     /* const filteredRecipes = () => {
         const filteredRecipes = recipes.filter((recipe) => {
@@ -1016,39 +1019,37 @@ function MainPage({ onSubmit }) {
     
     // custom toggle function for heart button
     // uses states to change the button from the selected to unselected state
-    const ToggleButton = (recipe) => {
+    /* const ToggleButton = ({recipe}) => {
         const [isToggled, setToggle] = useState(false);
+        const [savedRecipes, setSavedRecipes] = useState([]);
 
         const handleToggle = () => {
             setToggle(!isToggled);
-            savedRecipesList(recipe);
-        }
-
-        const savedRecipesList = (recipe) => {
+            
             if (isToggled) {
-            setSavedRecipes((prev) => [...prev, recipe]);
-            } else {
-            setSavedRecipes((prev) => prev.filter((r) => r !== recipe));
+                setSavedRecipes((prev) => [...prev, recipe]);
+            } 
+            else {
+                setSavedRecipes((prev) => prev.filter((r) => r !== recipe));
             }
-    
+
             console.log("Saved recipes: " + savedRecipes);
-            //return savedRecipes;
-    
-        };
+        }
 
         return (
             <button onClick={handleToggle} style={{border: "none", background: "none"}}>
                 {isToggled ? <RiHeartAddFill size="25px"/> : <RiHeartAddLine size="25px"/>}
             </button>
         )
-    }
+    } */
+
     
   
     return (
         <div className='tan'>
             <div className='d-flex justify-content-between align-items-center pt-4 px-4'>
                 <h1 className='mx-auto'>&nbsp;&nbsp;&nbsp;Fridge to Food</h1>
-                <Link to="/saved-recipes">
+                <Link to={{ pathname: '/saved-recipes' }}>
                     <BiSolidFoodMenu className='saved-btn'/>
                 </Link>
             </div>
@@ -1089,7 +1090,7 @@ function MainPage({ onSubmit }) {
                                 </div>
                                 <div>
                                     <div className='heart-btn'>
-                                        <ToggleButton />
+                                        <ToggleButton recipe={recipe} savedRecipes={savedRecipes} setSavedRecipes={setSavedRecipes}/>
                                     </div>
                                     <div className='pot-btn'>
                                         {/* target="_blank" opens link in new tab */}
@@ -1111,4 +1112,4 @@ function MainPage({ onSubmit }) {
 }
 
 
-export default MainPage;
+export default FridgeToFoodMainPage;

@@ -1,13 +1,18 @@
-import React from 'react';
-import MainPage from './components/MainPage';
-import { BrowserRouter as Router } from 'react-router-dom';
+import React, { useState } from 'react';
+import MainPage from './components/FridgeToFoodMainPage';
+import SavedRecipes from './components/SavedRecipes';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
+
+  const [savedRecipes, setSavedRecipes] = useState([]);
+
   return (
     <Router>
-      <div>
-        <MainPage />
-      </div>
+      <Routes>
+        <Route path="/" element={<MainPage savedRecipes={savedRecipes} setSavedRecipes={setSavedRecipes} />} />
+        <Route path="/saved-recipes" element={<SavedRecipes savedRecipes={savedRecipes} />} />
+      </Routes>
     </Router>
   );
 }

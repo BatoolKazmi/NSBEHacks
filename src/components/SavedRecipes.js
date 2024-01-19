@@ -1,21 +1,28 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Select, { components } from 'react-select';
+import { Link } from 'react-router-dom';
+import { FaChevronLeft } from "react-icons/fa";
+import { PiCookingPotBold } from "react-icons/pi";
+import ToggleButton from './ToggleButton';
 
-function SavedRecipes() {
+
+const SavedRecipesPage = ({ savedRecipes, setSavedRecipes }) => {
+    console.log("From saved recipes" + savedRecipes);
     return (
         <div className='tan'>
             <div className='d-flex justify-content-between align-items-center pt-4 px-4'>
-                <h1 className='mx-auto'>&nbsp;&nbsp;&nbsp;Saved Recipes</h1>
-                <Link to="/saved-recipes">
-                    <BiSolidFoodMenu className='saved-btn'/>
+                <Link to="/">
+                    <FaChevronLeft size="30px"/>
                 </Link>
+                <h1 className='mx-auto'>Saved Recipes</h1>
             </div>
             
         
             <div className='container mt-4'>
+                {savedRecipes ? (
                 <div className='row'>
-                    {filteredRecipes().map((recipe, index) => (
+                    {savedRecipes.map((recipe, index) => (
                     <div className='col-4'>
                         <div className='recipe-card' key={index}>
                             <div className='d-flex justify-content-between'>
@@ -24,7 +31,7 @@ function SavedRecipes() {
                                 </div>
                                 <div>
                                     <div className='heart-btn'>
-                                        <ToggleButton />
+                                        <ToggleButton recipe={recipe} savedRecipes={savedRecipes} setSavedRecipes={setSavedRecipes}/>
                                     </div>
                                     <div className='pot-btn'>
                                         {/* target="_blank" opens link in new tab */}
@@ -40,10 +47,13 @@ function SavedRecipes() {
                     </div>
                     ))}
                 </div>
+                ) : (
+                    <h2>No Saved Recipes yet</h2>
+                )}
             </div>
         </div>
     );
 }
 
 
-export default SavedRecipes;
+export default SavedRecipesPage;
