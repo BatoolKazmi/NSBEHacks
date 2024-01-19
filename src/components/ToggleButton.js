@@ -17,7 +17,7 @@ const ToggleButton = ({ recipe, savedRecipes, setSavedRecipes }) => {
         }
     };
 
-    console.log("saved recipes" + savedRecipes);
+    //console.log("saved recipes" + savedRecipes);
 
     return (
         <button onClick={handleToggle} style={{ border: "none", background: "none" }}>

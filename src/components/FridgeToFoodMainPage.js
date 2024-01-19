@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
+import Modal from "react-modal";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Select, { components } from 'react-select';
 import { Link } from 'react-router-dom';
 import "./MainPage.css";
 import SavedRecipes from "./SavedRecipes";
 import validIngredients from "../assets/ingredients.txt";
-import { FiChevronDown } from "react-icons/fi";
-import { FiChevronUp } from "react-icons/fi";
-import { MdCheckCircle } from "react-icons/md";
 import { BiSolidFoodMenu } from "react-icons/bi";
 import { PiCookingPotBold } from "react-icons/pi";
-//import { RiHeartAddLine } from "react-icons/ri";
-//import { RiHeartAddFill } from "react-icons/ri";
 import ToggleButton from './ToggleButton';
+import Box from '@mui/material/Box';
+import Slider from '@mui/material/Slider';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 
 const ingredientsList = [
     { label: 'salt', value: 'salt' },
@@ -197,7 +198,7 @@ const ingredientsList = [
     { label: 'whole grain mustard', value: 'whole grain mustard' },
     { label: 'yellow mustard', value: 'yellow mustard' },
     { label: 'honey mustard', value: 'honey mustard' },
-    { label: 'pickles', value: 'pickles' },
+    { label: 'pickle', value: 'pickle' },
     { label: 'relish', value: 'relish' },
     { label: 'jalapeños', value: 'jalapeños' },
     { label: 'capers', value: 'capers' },
@@ -958,10 +959,83 @@ const recipes = [
     }
 ]
 
+const convertTimeStringToMinutes = (timeString) => {
+    const hoursMinutesRegex = /(\d+)\s*hrs?\s*(\d*)\s*min/;
+    const hoursOnlyRegex = /(\d+)\s*hrs?/;
+    const minutesOnlyRegex = /(\d+)\s*min/;
+
+    let match = timeString.match(hoursMinutesRegex);
+
+    if (match) {
+        const hours = match[1] ? parseInt(match[1], 10) : 0;
+        const minutes = match[2] ? parseInt(match[2], 10) : 0;
+        return hours * 60 + minutes;
+    }
+
+    match = timeString.match(hoursOnlyRegex);
+
+    if (match) {
+        const hours = match[1] ? parseInt(match[1], 10) : 0;
+        return hours * 60;
+    }
+
+    match = timeString.match(minutesOnlyRegex);
+
+    if (match) {
+        const minutes = match[1] ? parseInt(match[1], 10) : 0;
+        return minutes;
+    }
+
+    return 0; // Default to 0 if the format doesn't match
+};
+
+const Allergies = () => {
+    return (
+        <div className='container'>
+            <div className='row'>
+                <div className='col-6'>
+                    <FormControlLabel control={<Checkbox />} className="checkbox" label="Nuts" />
+                    <FormControlLabel control={<Checkbox />} className="checkbox" label="Shellfish" />
+                    <FormControlLabel control={<Checkbox />} className="checkbox" label="Fish" />
+                </div>
+                <div className='col-6'>
+                    <FormControlLabel control={<Checkbox />} className="checkbox" label="Eggs" />
+                    <FormControlLabel control={<Checkbox />} className="checkbox" label="Soy" />
+                    <FormControlLabel control={<Checkbox />} className="checkbox" label="Sesame" />
+                </div>
+            </div>
+        </div>
+    );
+}
+
+const DietaryRestrictions = () => {
+    return (
+        <div className='container'>
+            <div className='row'>
+                <div className='col-6'>
+                    <FormControlLabel control={<Checkbox fontSize="12px"/>} className="checkbox" label="Vegan" />
+                    <FormControlLabel control={<Checkbox />} className="checkbox mt-2" label="Gluten-free" />
+                </div>
+                <div className='col-6'>
+                    <FormControlLabel control={<Checkbox />} className="checkbox" label="Vegetarian" />
+                    <FormControlLabel control={<Checkbox />} className="checkbox mt-2" label="Dairy-free" />
+                </div>
+            </div>
+        </div>
+    );
+}
+
 function FridgeToFoodMainPage({ savedRecipes, setSavedRecipes }) {
     const [selectedIngredient, setSelectedIngredient] = useState(null);
     const [selectedIngredients, setSelectedIngredients] = useState([]);
-    //const [savedRecipes, setSavedRecipes] = useState([]);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [sliderValue, setSliderValue] = useState(0);
+
+    const handleSliderChange = (event, newValue) => {
+        setSliderValue(newValue);
+        console.log("Slider value changed: " + newValue);
+        //filteredRecipes(newValue);
+    };
 
     const handleIngredientChange = (newValue, actionMeta) => {
         if (actionMeta.action === 'select-option' || actionMeta.action === 'remove-value') {
@@ -978,7 +1052,11 @@ function FridgeToFoodMainPage({ savedRecipes, setSavedRecipes }) {
     console.log(selectedIngredients);
 
     const filteredRecipes = () => {
+        //console.log("Time from slider" + time);
+        const time = sliderValue;
         const filteredRecipes = recipes.filter((recipe) => {
+            const recipeTotalMinutes = convertTimeStringToMinutes(recipe.total);
+            console.log("recipe total:" + recipe.total + "recipe min:" + recipeTotalMinutes);
             const recipeIngredients = recipe.ingredients.split(',').map((ingredient) => ingredient.trim().toLowerCase());
     
             // Check if any selected ingredients are present in the recipe's ingredients
@@ -989,9 +1067,15 @@ function FridgeToFoodMainPage({ savedRecipes, setSavedRecipes }) {
                         recipeIngredient.includes(selectedIngredient.toLowerCase())
                 )
             );
-            //console.log("has selected ingredients:"+hasSelectedIngredients);
 
-            return hasSelectedIngredients;
+            if (time === 0 || time === undefined) {
+                return hasSelectedIngredients;
+            }
+            else {
+                const isWithinTimeLimit = recipeTotalMinutes <= time;
+                return hasSelectedIngredients && isWithinTimeLimit;
+            }
+            
         });
         // this is actually working!
         //console.log(filteredRecipes);
@@ -999,51 +1083,6 @@ function FridgeToFoodMainPage({ savedRecipes, setSavedRecipes }) {
     };
     
     //console.log(filteredRecipes());
-    
-    /* const filteredRecipes = () => {
-        const filteredRecipes = recipes.filter((recipe) => {
-            const recipeIngredients = recipe.ingredients.split(',').map((ingredient) => ingredient.trim().toLowerCase());
-            console.log("Full List: "+recipeIngredients)
-            
-            const returnList = selectedIngredients.filter(
-                (ingredient) => recipeIngredients.includes(ingredient.toLowerCase())
-            );
-            console.log("Trimmed List"+returnList);
-            console.log("Selected Recipes"+selectedIngredients);
-
-          return returnList;
-        });
-      
-        return filteredRecipes;
-    };      */ 
-    
-    // custom toggle function for heart button
-    // uses states to change the button from the selected to unselected state
-    /* const ToggleButton = ({recipe}) => {
-        const [isToggled, setToggle] = useState(false);
-        const [savedRecipes, setSavedRecipes] = useState([]);
-
-        const handleToggle = () => {
-            setToggle(!isToggled);
-            
-            if (isToggled) {
-                setSavedRecipes((prev) => [...prev, recipe]);
-            } 
-            else {
-                setSavedRecipes((prev) => prev.filter((r) => r !== recipe));
-            }
-
-            console.log("Saved recipes: " + savedRecipes);
-        }
-
-        return (
-            <button onClick={handleToggle} style={{border: "none", background: "none"}}>
-                {isToggled ? <RiHeartAddFill size="25px"/> : <RiHeartAddLine size="25px"/>}
-            </button>
-        )
-    } */
-
-    
   
     return (
         <div className='tan'>
@@ -1053,7 +1092,7 @@ function FridgeToFoodMainPage({ savedRecipes, setSavedRecipes }) {
                     <BiSolidFoodMenu className='saved-btn'/>
                 </Link>
             </div>
-            <h6 className='d-flex justify-content-center mt-4 mb-4'>Enter all ingredients you currently have to receive recipes that you can start cooking right away</h6>
+            <h5 className='d-flex justify-content-center mt-4 mb-4'>Enter all ingredients you currently have to receive recipes that you can start cooking right away</h5>
             <div className='container'>
                 <div className='row'>
                     <div className='col-6 offset-3'>
@@ -1074,8 +1113,43 @@ function FridgeToFoodMainPage({ savedRecipes, setSavedRecipes }) {
                 </div>
                 <div className='row'>
                     <div className='col-1 offset-8 text-right mt-2'>
-                        <button>Filter</button>
+                        <button
+                            onClick={() => setModalIsOpen(true)}
+                        >Filter</button>
                     </div>
+                </div>
+            </div>
+            <div className='modal-container'>
+                <div>
+                    <Modal
+                        isOpen={modalIsOpen}
+                        onRequestClose={() => setModalIsOpen(false)}
+                        className="modal-shape"
+                        
+                    >
+                        <div className='modal-content'>
+                            <h4>Filter Results</h4>
+                            <hr/>
+                            <h5 className='mt-3'>Time</h5>
+                            <h6>
+                                {`Select the MAXIMUM amount of time in minutes for the recipes (0 shows recipes of any time)`}
+                            </h6>
+                            <Box sx={{ width: 220 }}>
+                                <Slider
+                                value={sliderValue}
+                                aria-label="Custom marks"
+                                defaultValue={20}
+                                step={10}
+                                valueLabelDisplay="auto"
+                                onChange={handleSliderChange}
+                                />
+                            </Box>
+                            <h5 className='mt-4'>Allergies</h5>
+                            <Allergies/>
+                            <h5 className='mt-4'>Dietary Restrictions</h5>
+                            <DietaryRestrictions/>
+                        </div>
+                    </Modal>
                 </div>
             </div>
         
@@ -1100,8 +1174,9 @@ function FridgeToFoodMainPage({ savedRecipes, setSavedRecipes }) {
                                     </div>
                                 </div>
                             </div>
-                            <div className='recipe-title'>{recipe.title}</div>
+                            <div className='recipe-title mb-1'>{recipe.title}</div>
                             <h6>{recipe.description}</h6>
+                            <h6>Time: {recipe.total}</h6>
                         </div>
                     </div>
                     ))}

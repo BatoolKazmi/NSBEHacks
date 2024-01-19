@@ -21,6 +21,7 @@
 
 .recipe-title {
     margin-top: 10px;
+    font-weight: 600;
 }
 
 .saved-btn {
@@ -39,4 +40,24 @@
 .pot-btn {
     margin-left: 6px;
     padding: none;
+}
+
+.modal-shape {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: 100%;
+    background: white;
+}
+
+.modal-content {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 10%;
+}
+
+.checkbox {
+    font-size: 12px;
+    margin: 0px 0px -12px -12px;
 }
