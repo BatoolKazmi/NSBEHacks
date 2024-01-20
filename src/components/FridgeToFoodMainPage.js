@@ -958,11 +958,14 @@ const recipes = [
     }
 ]
 
+// function to convert the recipe times which are formatted in multiple ways such as "40 mins" or "1 hr 20 mins" into only minutes
 const convertTimeStringToMinutes = (timeString) => {
+    // regex are formats to match the strings of recipe times
     const hoursMinutesRegex = /(\d+)\s*hrs?\s*(\d*)\s*min/;
     const hoursOnlyRegex = /(\d+)\s*hrs?/;
     const minutesOnlyRegex = /(\d+)\s*min/;
 
+    // if timeString.match(hoursMinutesRegex) - string is hr and min
     let match = timeString.match(hoursMinutesRegex);
 
     if (match) {
@@ -971,6 +974,7 @@ const convertTimeStringToMinutes = (timeString) => {
         return hours * 60 + minutes;
     }
 
+    // if timeString.match(hoursOnlyRegex) - string is hr
     match = timeString.match(hoursOnlyRegex);
 
     if (match) {
@@ -978,6 +982,7 @@ const convertTimeStringToMinutes = (timeString) => {
         return hours * 60;
     }
 
+    // if timeString.match(minutesOnlyRegex) - string is min
     match = timeString.match(minutesOnlyRegex);
 
     if (match) {
@@ -985,7 +990,7 @@ const convertTimeStringToMinutes = (timeString) => {
         return minutes;
     }
 
-    return 0; // Default to 0 if the format doesn't match
+    return 0; // default to 0 if the format doesn't match
 };
 
 function FridgeToFoodMainPage({ savedRecipes, setSavedRecipes }) {
@@ -999,12 +1004,15 @@ function FridgeToFoodMainPage({ savedRecipes, setSavedRecipes }) {
     const [isDairyFree, setIsDairyFree] = useState(false);
     const [isGlutenFree, setIsGlutenFree] = useState(false);
 
+    // function changes the saved value of the slider when the slider is used
     const handleSliderChange = (event, newValue) => {
         setSliderValue(newValue);
         console.log("Slider value changed: " + newValue);
         //filteredRecipes(newValue);
     };
 
+    // function adds new selected ingredients into the list of selected ingredients
+    // and removes ingredients that are unselected 
     const handleIngredientChange = (newValue, actionMeta) => {
         if (actionMeta.action === 'select-option' || actionMeta.action === 'remove-value') {
           setSelectedIngredients(newValue ? newValue.map((option) => option.value) : []);
@@ -1090,7 +1098,7 @@ function FridgeToFoodMainPage({ savedRecipes, setSavedRecipes }) {
             //console.log("recipe total:" + recipe.total + "recipe min:" + recipeTotalMinutes);
             const recipeIngredients = recipe.ingredients.split(',').map((ingredient) => ingredient.trim().toLowerCase());
     
-            // Check if any selected ingredients are present in the recipe's ingredients
+            // check if any selected ingredients are present in the recipe's ingredients
             const hasSelectedIngredients = selectedIngredients.length === 0 || selectedIngredients.some(
                 (selectedIngredient) =>
                     recipeIngredients.some(
@@ -1099,12 +1107,17 @@ function FridgeToFoodMainPage({ savedRecipes, setSavedRecipes }) {
                 )
             );
 
+            // searches for the allergy ingredients in the recipe's ingredient list
+            // if any allergy ingredient is found, it returns true
             const hasAllergies = selectedAllergies.some((selectedAllergy) =>
                 recipeIngredients.some((recipeIngredient) => 
                     recipeIngredient.includes(selectedAllergy.toLowerCase()
                 )
             ));
 
+            // searches for the dietary restriction's restricted foods in the recipe's ingredient list
+            // if any restricted ingredient is found, it returns true
+            // OR allows the hasRestrictedFood variable to return true if any restricted ingredient from any dietary res is found
             if (isVegan) {
                 console.log("is vegan:" + isVegan);
                 hasRestrictedFood = hasRestrictedFood || (NOvegan.some((NOveganIng) =>
@@ -1138,6 +1151,9 @@ function FridgeToFoodMainPage({ savedRecipes, setSavedRecipes }) {
                 ))
             }
 
+            // filters recipes based on time from the slider
+            // recipes must have min 1 selected ingredient, not have allergy or dietary restriction ingredients 
+            // and be equal to or under the selected time
             if (time === 0 || time === undefined) {
                 return hasSelectedIngredients && !hasAllergies && !hasRestrictedFood;
             }
@@ -1147,8 +1163,7 @@ function FridgeToFoodMainPage({ savedRecipes, setSavedRecipes }) {
             }
             
         });
-        // this is actually working!
-        //console.log(filteredRecipes);
+        
         return filteredRecipes;
     };
     
@@ -1165,7 +1180,7 @@ function FridgeToFoodMainPage({ savedRecipes, setSavedRecipes }) {
             <h5 className='d-flex justify-content-center mt-4 mb-4'>
                 Enter all ingredients you currently have to receive recipes that you can start cooking right away!
                 <br/>Use the filter feature to filter recipes by time, allergies, and dietary restrictions
-                </h5>
+            </h5>
             <div className='container'>
                 <div className='row'>
                     <div className='col-6 offset-3'>

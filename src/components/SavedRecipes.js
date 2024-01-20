@@ -6,7 +6,8 @@ import { FaChevronLeft } from "react-icons/fa";
 import { PiCookingPotBold } from "react-icons/pi";
 import ToggleButton from './ToggleButton';
 
-
+// this creates the saved recipes page
+// the saved recipes are displayed using savedRecipes.map where each saved recipe is rendered into a card with its info
 const SavedRecipesPage = ({ savedRecipes, setSavedRecipes }) => {
     console.log("From saved recipes" + savedRecipes);
     return (

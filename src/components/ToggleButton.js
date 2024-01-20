@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { RiHeartAddFill, RiHeartAddLine } from 'react-icons/ri';
 
+// this function creates and handles the toggle button component
+// using the isToggled state, the recipe is either added or unadded from the saved recipes list
 const ToggleButton = ({ recipe, savedRecipes, setSavedRecipes }) => {
     
     const [isToggled, setToggle] = useState(false);
@@ -17,8 +19,8 @@ const ToggleButton = ({ recipe, savedRecipes, setSavedRecipes }) => {
         }
     };
 
-    //console.log("saved recipes" + savedRecipes);
-
+    // returns the toggle button which is displayed as a filled heart if the recipe is saved
+    // or as a hollow heart if the recipe is not saved
     return (
         <button onClick={handleToggle} style={{ border: "none", background: "none" }}>
             {recipe.saved ? (
