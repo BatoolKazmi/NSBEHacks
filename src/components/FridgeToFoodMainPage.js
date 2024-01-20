@@ -23,7 +23,7 @@ const ingredientsList = [
     { label: 'oil', value: 'oil' },
     { label: 'eggs', value: 'eggs' },
     { label: 'milk', value: 'milk' },
-    { label: 'water', value: 'water' },
+    { label: 'bread', value: 'bread' },
     { label: 'garlic', value: 'garlic' },
     { label: 'onion', value: 'onion' },
     { label: 'pepper', value: 'pepper' },
@@ -31,6 +31,8 @@ const ingredientsList = [
     { label: 'cheese', value: 'cheese' },
     { label: 'chicken', value: 'chicken' },
     { label: 'beef', value: 'beef' },
+    { label: 'pork', value: 'pork' },
+    { label: 'lamb', value: 'lamb' },
     { label: 'rice', value: 'rice' },
     { label: 'pasta', value: 'pasta' },
     { label: 'vinegar', value: 'vinegar' },
@@ -47,11 +49,6 @@ const ingredientsList = [
     { label: 'ginger', value: 'ginger' },
     { label: 'cumin', value: 'cumin' },
     { label: 'paprika', value: 'paprika' },
-    { label: 'mustard', value: 'mustard' },
-    { label: 'ketchup', value: 'ketchup' },
-    { label: 'mayonnaise', value: 'mayonnaise' },
-    { label: 'soy sauce', value: 'soy sauce' },
-    { label: 'Worcestershire sauce', value: 'Worcestershire sauce' },
     { label: 'honey', value: 'honey' },
     { label: 'maple syrup', value: 'maple syrup' },
     { label: 'brown sugar', value: 'brown sugar' },
@@ -85,28 +82,19 @@ const ingredientsList = [
     { label: 'scallops', value: 'scallops' },
     { label: 'mussels', value: 'mussels' },
     { label: 'clams', value: 'clams' },
-    { label: 'calamari', value: 'calamari' },
     { label: 'tilapia', value: 'tilapia' },
     { label: 'cod', value: 'cod' },
     { label: 'halibut', value: 'halibut' },
     { label: 'trout', value: 'trout' },
-    { label: 'catfish', value: 'catfish' },
     { label: 'anchovies', value: 'anchovies' },
-    { label: 'sardines', value: 'sardines' },
     { label: 'tofu', value: 'tofu' },
-    { label: 'tempeh', value: 'tempeh' },
-    { label: 'seitan', value: 'seitan' },
     { label: 'chickpeas', value: 'chickpeas' },
     { label: 'black beans', value: 'black beans' },
     { label: 'kidney beans', value: 'kidney beans' },
     { label: 'lentils', value: 'lentils' },
     { label: 'quinoa', value: 'quinoa' },
-    { label: 'bulgur', value: 'bulgur' },
     { label: 'couscous', value: 'couscous' },
     { label: 'barley', value: 'barley' },
-    { label: 'farro', value: 'farro' },
-    { label: 'millet', value: 'millet' },
-    { label: 'edamame', value: 'edamame' },
     { label: 'spinach', value: 'spinach' },
     { label: 'kale', value: 'kale' },
     { label: 'lettuce', value: 'lettuce' },
@@ -137,10 +125,8 @@ const ingredientsList = [
     { label: 'rutabaga', value: 'rutabaga' },
     { label: 'artichokes', value: 'artichokes' },
     { label: 'mushrooms', value: 'mushrooms' },
-    { label: 'avocados', value: 'avocados' },
+    { label: 'avocado', value: 'avocado' },
     { label: 'olives', value: 'olives' },
-    { label: 'sun-dried tomatoes', value: 'sun-dried tomatoes' },
-    { label: 'capers', value: 'capers' },
     { label: 'pesto', value: 'pesto' },
     { label: 'hummus', value: 'hummus' },
     { label: 'salsa', value: 'salsa' },
@@ -152,9 +138,6 @@ const ingredientsList = [
     { label: 'chimichurri', value: 'chimichurri' },
     { label: 'tahini', value: 'tahini' },
     { label: 'miso', value: 'miso' },
-    { label: 'teriyaki sauce', value: 'teriyaki sauce' },
-    { label: 'hoisin sauce', value: 'hoisin sauce' },
-    { label: 'fish sauce', value: 'fish sauce' },
     { label: 'curry paste', value: 'curry paste' },
     { label: 'coconut milk', value: 'coconut milk' },
     { label: 'broth', value: 'broth' },
@@ -166,7 +149,6 @@ const ingredientsList = [
     { label: 'diced tomatoes', value: 'diced tomatoes' },
     { label: 'tomato puree', value: 'tomato puree' },
     { label: 'tomato juice', value: 'tomato juice' },
-    { label: 'clam juice', value: 'clam juice' },
     { label: 'chicken broth', value: 'chicken broth' },
     { label: 'beef broth', value: 'beef broth' },
     { label: 'vegetable broth', value: 'vegetable broth' },
@@ -178,7 +160,7 @@ const ingredientsList = [
     { label: 'sunflower oil', value: 'sunflower oil' },
     { label: 'corn oil', value: 'corn oil' },
     { label: 'vegetable oil', value: 'vegetable oil' },
-    { label: 'mayonnaise', value: 'mayonnaise' },
+    { label: 'mayo', value: 'mayo' },
     { label: 'mustard', value: 'mustard' },
     { label: 'ketchup', value: 'ketchup' },
     { label: 'barbecue sauce', value: 'barbecue sauce' },
@@ -194,10 +176,6 @@ const ingredientsList = [
     { label: 'apple cider vinegar', value: 'apple cider vinegar' },
     { label: 'rice vinegar', value: 'rice vinegar' },
     { label: 'malt vinegar', value: 'malt vinegar' },
-    { label: 'Dijon mustard', value: 'Dijon mustard' },
-    { label: 'whole grain mustard', value: 'whole grain mustard' },
-    { label: 'yellow mustard', value: 'yellow mustard' },
-    { label: 'honey mustard', value: 'honey mustard' },
     { label: 'pickle', value: 'pickle' },
     { label: 'relish', value: 'relish' },
     { label: 'jalapeños', value: 'jalapeños' },
@@ -217,6 +195,29 @@ const ingredientsList = [
     { label: 'preserves', value: 'preserves' },
     { label: 'Nutella', value: 'Nutella' },
 ];
+
+const NOvegetarian = [
+    'chicken', 'beef', 'pork', 'lamb', 'shellfish', 'lobster', 'shrimp', 'crab', 'clams', 'mussels', 'scallops',
+    'fish', 'salmon', 'tuna', 'trout', 'halibut', 'cod', 'tilapia', 'anchovies', 'chicken broth', 'beef broth', 
+    'salami', 'ham', 'turkey'
+]
+
+const NOvegan = [
+    'chicken', 'beef', 'pork', 'lamb', 'shellfish', 'lobster', 'shrimp', 'crab', 'clams', 'mussels', 'scallops',
+    'fish', 'salmon', 'tuna', 'trout', 'halibut', 'cod', 'tilapia', 'anchovies', 'chicken broth', 'beef broth', 
+    'salami', 'ham', 'turkey', 'eggs', 'mayo', 'Worcestershire sauce', 'milk', 'cream', 'cheese', 'yogurt', 'sour cream', 
+    'sour cream', 'cream cheese', 'cottage cheese', 'feta cheese', 'mozzarella', 'cheddar', 'parmesan', 
+    'ricotta', 'blue cheese', 'gouda', 'brie'
+]
+
+const NOdairy = [
+    'milk', 'cream', 'cheese', 'yogurt', 'sour cream', 'sour cream', 'cream cheese', 'cottage cheese',
+    'feta cheese', 'mozzarella', 'cheddar', 'parmesan', 'ricotta', 'blue cheese', 'gouda', 'brie'
+]
+
+const NOgluten = [
+    'flour', 'bread', 'pasta', 'hoagie', 'rolls', 'buns', 'pretzels'
+]
 
 const recipes = [
     {
@@ -278,7 +279,8 @@ const recipes = [
         "cook":"10 mins",
         "description":"This French dip sandwich is made in 15 minutes with thinly sliced roast beef soaked in flavorful au jus, served warm with melted provolone cheese.",
         "directions":"Step1: Preheat the oven to 350 degrees F (175 degrees C). Step2: Open hoagie rolls and lay them out on a baking sheet. Step3: Heat beef consommé and water in a medium saucepan over medium-high heat to make a rich beef broth. Step4: Place roast beef in broth and warm for 3 minutes. Step5: Arrange meat on hoagie rolls and top each roll with 2 slices of provolone. Step6: Bake sandwiches in the preheated oven until cheese melts, about 5 minutes. Step7: Serve sandwiches with small bowls of warm broth for dipping.",
-        "images":"https://www.allrecipes.com/thmb/rwhPXXvcIGXCgQYQSqP6uRUaeZI=/160x90/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/136476-Easy-French-Dip-Sandwiches-ddmps-4x3-104757-5b722084131b4259a91e073b0ae539ba.jpg","ingredients":"4 hoagie rolls, split lengthwise, 1 (10.5 ounce) can beef consomme, 1 cup water, 1 pound thinly sliced deli roast beef, 8 slices provolone cheese",
+        "images":"https://www.allrecipes.com/thmb/rwhPXXvcIGXCgQYQSqP6uRUaeZI=/160x90/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/136476-Easy-French-Dip-Sandwiches-ddmps-4x3-104757-5b722084131b4259a91e073b0ae539ba.jpg",
+        "ingredients":"4 hoagie rolls, split lengthwise, 1 (10.5 ounce) can beef consomme, 1 cup water, 1 pound thinly sliced deli roast beef, 8 slices provolone cheese",
         "prep":"5 mins",
         "servings":"4",
         "total":"15 mins",
@@ -820,9 +822,6 @@ const recipes = [
         "url":"https://www.allrecipes.com/recipe/39544/garden-fresh-tomato-soup/","title":"Fresh Tomato Soup","cook":"30 mins","description":"This tomato soup recipe is quick and easy to make for homemade fresh tomato soup; perfect when summer tomatoes are ripe in gardens and farmers' markets.","directions":"Step1: Gather all ingredients. Step2: Combine tomatoes, chicken broth, garlic cloves, and a large slice of onion in a stockpot over medium heat. Bring to a boil, and gently simmer for about 20 minutes to blend flavors. Step3: Remove from heat and run the mixture through a food mill into a large bowl, or pan. Discard any stuff left over in the food mill. Step4: Melt butter over medium heat in the now empty stockpot. Stir in flour to make a roux by cooking, whisking constantly, until mixture turns medium brown. Step5: Gradually whisk in a bit of the tomato mixture to prevent lumps from forming, then stir in the rest. Step6: Season with sugar and salt to taste. Step7: Serve hot and enjoy!","images":"https://www.allrecipes.com/thmb/uLCRilf9wmxisY0llEOM8aYMWb4=/160x90/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/39544-Garden-Fresh-Tomato-Soup-DDMFS-4x3-b8e94cf7ab8e42f4b79042fc0df55546.jpg","ingredients":"4 cups chopped fresh tomatoes, 2 cups chicken broth, 4 cloves garlic, 1 slice onion, 2 tablespoons butter, 2 tablespoons all-purpose flour, 2 teaspoons white sugar, or to taste, 1 teaspoon salt","prep":"5 mins","servings":"6","total":"35 mins","timestamp":"2024-01-14T23:05:28Z"
     },
     {
-        "url":"https://www.allrecipes.com/recipe/84450/ukrainian-red-borscht-soup/","title":"Ukrainian Red Borscht Soup","cook":"40 mins","description":"Borscht is a hearty beet soup with cabbage, potatoes, and garlic that's popular in Eastern Europe. This Ukrainian recipe includes pork for a delicious, comforting meal.","directions":"Step1: Crumble sausage into a skillet set over medium-high heat. Cook and stir until no longer pink. Remove from the heat and set aside. Step2: Fill a large pot halfway with water (about 8 cups) and bring to a boil. Step3: Add sausage to pot, cover pot, and return to a boil. Add beets and simmer for 10 minutes. Add carrots and potatoes and continue to cook until potatoes are tender, about 10 minutes more. Stir in cabbage and tomatoes. Step4: Heat oil in a skillet over medium heat. Add onion and cook until tender. Stir in tomato paste and remaining 3/4 cup water until well blended; transfer to the pot. Step5: Add garlic to the soup, cover, and turn off the heat. Let stand 5 minutes. Stir in sugar and season with salt and pepper. Step6: Ladle into serving bowls. Garnish with sour cream and dill.","images":"https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2020%2F09%2F03%2FUkrainian-Red-Borscht-Soup.jpg&q=60&c=sc&orient=true&w=160&poi=auto&h=90","ingredients":"1 (16 ounce) package pork sausage, 3 medium beets, peeled and shredded, 3 carrots, peeled and shredded, 3 medium baking potatoes, peeled and cubed, 0.5 medium head cabbage, cored and shredded, 1 cup diced tomatoes, drained, 1 tablespoon vegetable oil, 1 medium onion, chopped, 1 (6 ounce) can tomato paste, 8.75 cups water, divided, or as needed, 3 cloves garlic, minced, 1 teaspoon white sugar, or to taste, salt and pepper to taste, 0.5 cup sour cream, for topping, 1 tablespoon chopped fresh parsley for garnish","prep":"25 mins","servings":"10","total":"1 hr 5 mins","timestamp":"2024-01-14T23:05:38Z"
-    },
-    {
         "url":"https://www.allrecipes.com/recipe/8495600/creamy-chicken-ramen-soup-with-dill/","title":"Creamy Chicken Ramen Soup with Dill","cook":"10 mins","description":"Try this quick and easy creamy chicken ramen soup when you're not in the mood for cooking.","directions":"Step1: Bring water to a boil in a saucepan. Break up noodles and toss into boiling water. Cook until tender, about 3 minutes. Stir in chicken, sour cream, seasoning packet, and dill. Simmer until heated through. Serve garnished with green onions.","images":"https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fpublic-assets.meredithcorp.io%2F33fb39db26a0e2a38886bda180b1d636%2F1674094823392IMG_9092.jpeg&q=60&c=sc&orient=true&w=160&poi=auto&h=90","ingredients":"1.75 cups water, 1 (3 ounce) package chicken flavored ramen noodles, 1 (5 ounce) can canned chicken, drained, 2 tablespoons sour cream, 2 teaspoons dried dill weed, green onions for garnish (optional)","prep":"5 mins","servings":"1","total":"15 mins","timestamp":"2024-01-14T23:05:45Z"
     },
     {
@@ -891,7 +890,7 @@ const recipes = [
         "url":"https://www.allrecipes.com/recipe/277019/baked-pork-chops-with-cream-of-mushroom-soup/","title":"Baked Pork Chops with Cream of Mushroom Soup","cook":"1 hr","description":"These baked pork chops with cream of mushroom soup are made in the oven with just 5 ingredients for an easy weeknight meal the whole family will love.","directions":"Step1: Gather all ingredients. Step2: Preheat the oven to 325 degrees F (165 degrees C). Step3: Place onion slices on the bottom of a glass baking dish. Lay pork chops over onions. Cover chops evenly with condensed soup. Step4: Add water and bouillon, breaking up the bouillon cubes to spread flavor. Cover the baking dish with aluminum foil. Step5: Bake pork chops in the preheated oven, stirring gravy once or twice, until no longer pink in the centers, about 1 hour. An instant-read thermometer inserted into the center of a chop should read at least 145 degrees F (63 degrees C).","images":"https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F9409441.jpg&q=60&c=sc&orient=true&w=160&poi=auto&h=90","ingredients":"0.5 yellow onion, sliced, 4 pork chops, 26 ounces condensed cream of mushroom soup, 0.25 cup water, 2 cubes beef bouillon","prep":"10 mins","servings":"4","total":"1 hr 10 mins","timestamp":"2024-01-14T23:20:38Z"
     },
     {
-        "url":"https://www.allrecipes.com/recipe/240522/easy-rib-eye-roast/","title":"Easy Rib Eye Roast","cook":"1 hr 30 mins","description":"Rib-eye roast on the bone is always a crowd-pleaser. This easy five-ingredient recipe is a snap to prepare and carves up tender, juicy, and delicious.","directions":"Step1: Preheat the oven to 500 degrees F (260 degrees C). Step2: Beat butter and garlic together in a bowl. Step3: Poke several holes in rib eye with a sharp knife. Rub butter mixture all over meat and season with salt and pepper. Place rib eye fat-side up in a roasting pan. Step4: Roast in the preheated oven for 20 minutes. Step5: Reduce heat to 325 degrees F (165 degrees C) and continue cooking until rib eye is reddish-pink and juicy in the center, 1 1/2 to 2 hours. An instant-read thermometer inserted into the center will read 145 degrees F (63 degrees C) for medium.","images":"https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F7801460.jpg&q=60&c=sc&orient=true&w=160&poi=auto&h=90","ingredients":"1 cup softened butter, 6 cloves garlic, minced, 1 (4 pound) bone-in rib-eye roast, sea salt and cracked black pepper to taste","prep":"10 mins","servings":"8","total":"1 hr 40 mins","timestamp":"2024-01-14T23:20:53Z"
+        "url":"https://www.allrecipes.com/recipe/240522/easy-rib-eye-roast/","title":"Easy Rib Eye Roast","cook":"1 hr 30 mins","description":"Rib-eye roast on the bone is always a crowd-pleaser. This easy five-ingredient recipe is a snap to prepare and carves up tender, juicy, and delicious.","directions":"Step1: Preheat the oven to 500 degrees F (260 degrees C). Step2: Beat butter and garlic together in a bowl. Step3: Poke several holes in rib eye with a sharp knife. Rub butter mixture all over meat and season with salt and pepper. Place rib eye fat-side up in a roasting pan. Step4: Roast in the preheated oven for 20 minutes. Step5: Reduce heat to 325 degrees F (165 degrees C) and continue cooking until rib eye is reddish-pink and juicy in the center, 1 1/2 to 2 hours. An instant-read thermometer inserted into the center will read 145 degrees F (63 degrees C) for medium.","images":"https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimages.media-allrecipes.com%2Fuserphotos%2F7801460.jpg&q=60&c=sc&orient=true&w=160&poi=auto&h=90","ingredients":"1 cup softened butter, 6 cloves garlic, minced, 1 (4 pound) bone-in rib-eye beef roast, sea salt and cracked black pepper to taste","prep":"10 mins","servings":"8","total":"1 hr 40 mins","timestamp":"2024-01-14T23:20:53Z"
     },
     {
         "url":"https://www.allrecipes.com/recipe/235153/easy-baked-chicken-thighs/","title":"Easy Baked Chicken Thighs","cook":"30 mins","description":"These easy baked chicken thighs, seasoned with onion and garlic, take just 30 minutes to bake in the oven for a quick and delicious weeknight meal.","directions":"Step1: Preheat the oven to 375 degrees F (190 degrees C). Step2: Place chicken thighs in a baking dish; season both sides with garlic powder and onion flakes. Step3: Bake in the preheated oven until no longer pink at the bone and juices run clear, about 30 minutes. An instant-read thermometer inserted into thickest part of thigh, near the bone, should read 165 degrees F (74 degrees C).","images":"https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F43%2F2022%2F05%2F18%2F4348465-easy-baked-chicken-thighs-Meoshia_P-1x1-1.jpg&q=60&c=sc&orient=true&w=160&poi=auto&h=90","ingredients":"4 chicken thighs, 4 teaspoons garlic powder, 4 teaspoons onion flakes","prep":"5 mins","servings":"4","total":"35 mins","timestamp":"2024-01-14T23:21:14Z"
@@ -989,47 +988,16 @@ const convertTimeStringToMinutes = (timeString) => {
     return 0; // Default to 0 if the format doesn't match
 };
 
-const Allergies = () => {
-    return (
-        <div className='container'>
-            <div className='row'>
-                <div className='col-6'>
-                    <FormControlLabel control={<Checkbox />} className="checkbox" label="Nuts" />
-                    <FormControlLabel control={<Checkbox />} className="checkbox" label="Shellfish" />
-                    <FormControlLabel control={<Checkbox />} className="checkbox" label="Fish" />
-                </div>
-                <div className='col-6'>
-                    <FormControlLabel control={<Checkbox />} className="checkbox" label="Eggs" />
-                    <FormControlLabel control={<Checkbox />} className="checkbox" label="Soy" />
-                    <FormControlLabel control={<Checkbox />} className="checkbox" label="Sesame" />
-                </div>
-            </div>
-        </div>
-    );
-}
-
-const DietaryRestrictions = () => {
-    return (
-        <div className='container'>
-            <div className='row'>
-                <div className='col-6'>
-                    <FormControlLabel control={<Checkbox fontSize="12px"/>} className="checkbox" label="Vegan" />
-                    <FormControlLabel control={<Checkbox />} className="checkbox mt-2" label="Gluten-free" />
-                </div>
-                <div className='col-6'>
-                    <FormControlLabel control={<Checkbox />} className="checkbox" label="Vegetarian" />
-                    <FormControlLabel control={<Checkbox />} className="checkbox mt-2" label="Dairy-free" />
-                </div>
-            </div>
-        </div>
-    );
-}
-
 function FridgeToFoodMainPage({ savedRecipes, setSavedRecipes }) {
     const [selectedIngredient, setSelectedIngredient] = useState(null);
     const [selectedIngredients, setSelectedIngredients] = useState([]);
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [sliderValue, setSliderValue] = useState(0);
+    const [selectedAllergies, setSelectedAllergies] = useState([]);
+    const [isVegetarian, setIsVegetarian] = useState(false);
+    const [isVegan, setIsVegan] = useState(false);
+    const [isDairyFree, setIsDairyFree] = useState(false);
+    const [isGlutenFree, setIsGlutenFree] = useState(false);
 
     const handleSliderChange = (event, newValue) => {
         setSliderValue(newValue);
@@ -1051,12 +1019,75 @@ function FridgeToFoodMainPage({ savedRecipes, setSavedRecipes }) {
       
     console.log(selectedIngredients);
 
+    // this function updates the array of selected allergies when an allergy checkbox is clicked (button toggles from selected to unselected)
+    // if the allergy passed into the function is already contained in the array, it is removed
+    // if the allergy is not in the array, it is added into it 
+    const handleAllergyChange = (allergy) => {
+        setSelectedAllergies((prevSelected) => {
+            let updatedAllergies;
+
+            // adds/removes eggs and mayo from the allergy list since if you're allergic to eggs, you're also allergic to mayo
+            if (allergy === 'Eggs') {
+                updatedAllergies = (prevSelected.includes('Eggs')) 
+                ? prevSelected.filter((selected) => selected !== 'Eggs' && selected !== 'Mayo') 
+                : [...prevSelected, 'Eggs', 'Mayo'];
+            }
+            // adds/removes all foods containing soy from allergies list
+            else if (allergy === 'Soy') {
+                updatedAllergies = (prevSelected.includes('Soy')) 
+                ? prevSelected.filter((selected) => selected !== 'Soy' && selected !== 'Tofu' && selected !== 'Miso') 
+                : [...prevSelected, 'Soy', 'Tofu', 'Miso'];
+            }
+            // adds/removes all types of shellfish from the allergies list
+            else if (allergy === 'Shellfish') {
+                updatedAllergies = (prevSelected.includes('Shellfish')) 
+                ? prevSelected.filter((selected) => 
+                    selected !== 'Shellfish' 
+                    && selected !== 'Lobster' 
+                    && selected !== 'Shrimp'
+                    && selected !== 'Crab'
+                    && selected !== 'Clams'
+                    && selected !== 'Mussels'
+                    && selected !== 'Scallops'
+                    ) 
+                : [...prevSelected, 'Shellfish', 'Lobster', 'Shrimp', 'Crab', 'Clams', 'Mussels', 'Scallops'];
+            }
+            // adds/removes all types of fish from the allergies list
+            else if (allergy === 'Fish') {
+                updatedAllergies = (prevSelected.includes('Fish')) 
+                ? prevSelected.filter((selected) => 
+                    selected !== 'Fish' 
+                    && selected !== 'Salmon' 
+                    && selected !== 'Tuna' 
+                    && selected !== 'Trout'
+                    && selected !== 'Halibut'
+                    && selected !== 'Cod'
+                    && selected !== 'Tilapia'
+                    && selected !== 'Anchovies'
+                    ) 
+                : [...prevSelected, 'Fish', 'Salmon', 'Tuna', 'Trout', 'Halibut', 'Cod', 'Tilapia', 'Anchovies'];
+            }
+            else if (prevSelected.includes(allergy)) {
+                // If selected, remove it from the state
+                updatedAllergies = prevSelected.filter((selected) => selected !== allergy);
+            } else {
+                // If not selected, add it to the state
+                updatedAllergies = [...prevSelected, allergy];
+            }
+        
+            console.log("Selected allergies:", updatedAllergies);
+            return updatedAllergies;
+        });
+    };
+      
+
     const filteredRecipes = () => {
-        //console.log("Time from slider" + time);
         const time = sliderValue;
+
         const filteredRecipes = recipes.filter((recipe) => {
+            let hasRestrictedFood = false;
             const recipeTotalMinutes = convertTimeStringToMinutes(recipe.total);
-            console.log("recipe total:" + recipe.total + "recipe min:" + recipeTotalMinutes);
+            //console.log("recipe total:" + recipe.total + "recipe min:" + recipeTotalMinutes);
             const recipeIngredients = recipe.ingredients.split(',').map((ingredient) => ingredient.trim().toLowerCase());
     
             // Check if any selected ingredients are present in the recipe's ingredients
@@ -1068,12 +1099,51 @@ function FridgeToFoodMainPage({ savedRecipes, setSavedRecipes }) {
                 )
             );
 
+            const hasAllergies = selectedAllergies.some((selectedAllergy) =>
+                recipeIngredients.some((recipeIngredient) => 
+                    recipeIngredient.includes(selectedAllergy.toLowerCase()
+                )
+            ));
+
+            if (isVegan) {
+                console.log("is vegan:" + isVegan);
+                hasRestrictedFood = hasRestrictedFood || (NOvegan.some((NOveganIng) =>
+                    recipeIngredients.some((recipeIngredient) => 
+                        recipeIngredient.includes(NOveganIng.toLowerCase())
+                    )
+                ))
+            }
+            else if (isVegetarian) {
+                console.log("is vegetarian:" + isVegetarian);
+                hasRestrictedFood = hasRestrictedFood || (NOvegetarian.some((NOvegIng) =>
+                    recipeIngredients.some((recipeIngredient) => 
+                        recipeIngredient.includes(NOvegIng.toLowerCase())
+                    )
+                ))
+            }
+            if (isDairyFree) {
+                console.log("is dairy-free:" + isDairyFree);
+                hasRestrictedFood = hasRestrictedFood || (NOdairy.some((NOdairyIng) =>
+                    recipeIngredients.some((recipeIngredient) => 
+                        recipeIngredient.includes(NOdairyIng.toLowerCase())
+                    )
+                ))
+            }
+            if (isGlutenFree) {
+                console.log("is gluten-free:" + isGlutenFree);
+                hasRestrictedFood = hasRestrictedFood || (NOgluten.some((NOgluten) =>
+                    recipeIngredients.some((recipeIngredient) => 
+                        recipeIngredient.includes(NOgluten.toLowerCase())
+                    )
+                ))
+            }
+
             if (time === 0 || time === undefined) {
-                return hasSelectedIngredients;
+                return hasSelectedIngredients && !hasAllergies && !hasRestrictedFood;
             }
             else {
                 const isWithinTimeLimit = recipeTotalMinutes <= time;
-                return hasSelectedIngredients && isWithinTimeLimit;
+                return hasSelectedIngredients && isWithinTimeLimit && !hasAllergies && !hasRestrictedFood;
             }
             
         });
@@ -1085,14 +1155,17 @@ function FridgeToFoodMainPage({ savedRecipes, setSavedRecipes }) {
     //console.log(filteredRecipes());
   
     return (
-        <div className='tan'>
+        <div>
             <div className='d-flex justify-content-between align-items-center pt-4 px-4'>
                 <h1 className='mx-auto'>&nbsp;&nbsp;&nbsp;Fridge to Food</h1>
                 <Link to={{ pathname: '/saved-recipes' }}>
                     <BiSolidFoodMenu className='saved-btn'/>
                 </Link>
             </div>
-            <h5 className='d-flex justify-content-center mt-4 mb-4'>Enter all ingredients you currently have to receive recipes that you can start cooking right away</h5>
+            <h5 className='d-flex justify-content-center mt-4 mb-4'>
+                Enter all ingredients you currently have to receive recipes that you can start cooking right away!
+                <br/>Use the filter feature to filter recipes by time, allergies, and dietary restrictions
+                </h5>
             <div className='container'>
                 <div className='row'>
                     <div className='col-6 offset-3'>
@@ -1115,6 +1188,7 @@ function FridgeToFoodMainPage({ savedRecipes, setSavedRecipes }) {
                     <div className='col-1 offset-8 text-right mt-2'>
                         <button
                             onClick={() => setModalIsOpen(true)}
+                            className='filter-btn'
                         >Filter</button>
                     </div>
                 </div>
@@ -1132,9 +1206,9 @@ function FridgeToFoodMainPage({ savedRecipes, setSavedRecipes }) {
                             <hr/>
                             <h5 className='mt-3'>Time</h5>
                             <h6>
-                                {`Select the MAXIMUM amount of time in minutes for the recipes (0 shows recipes of any time)`}
+                                {`Select the MAXIMUM amount of time in minutes for the recipes (select 0 to show recipes of all times)`}
                             </h6>
-                            <Box sx={{ width: 220 }}>
+                            <Box sx={{ width: "100%" }}>
                                 <Slider
                                 value={sliderValue}
                                 aria-label="Custom marks"
@@ -1145,9 +1219,33 @@ function FridgeToFoodMainPage({ savedRecipes, setSavedRecipes }) {
                                 />
                             </Box>
                             <h5 className='mt-4'>Allergies</h5>
-                            <Allergies/>
+                            <div className='container'>
+                                <div className='row'>
+                                    <div className='col-6'>
+                                        <FormControlLabel control={<Checkbox checked={selectedAllergies.includes('Nuts')} onChange={() => handleAllergyChange('Nuts')}/>} className="checkbox" label="Nuts" />
+                                        <FormControlLabel control={<Checkbox checked={selectedAllergies.includes('Shellfish')} onChange={() => handleAllergyChange('Shellfish')}/>} className="checkbox" label="Shellfish" />
+                                        <FormControlLabel control={<Checkbox checked={selectedAllergies.includes('Fish')} onChange={() => handleAllergyChange('Fish')}/>} className="checkbox" label="Fish" />
+                                    </div>
+                                    <div className='col-6'>
+                                        <FormControlLabel control={<Checkbox checked={selectedAllergies.includes('Eggs')} onChange={() => handleAllergyChange('Eggs')}/>} className="checkbox" label="Eggs" />
+                                        <FormControlLabel control={<Checkbox checked={selectedAllergies.includes('Soy')} onChange={() => handleAllergyChange('Soy')}/>} className="checkbox" label="Soy" />
+                                        <FormControlLabel control={<Checkbox checked={selectedAllergies.includes('Sesame')} onChange={() => handleAllergyChange('Sesame')}/>} className="checkbox" label="Sesame" />
+                                    </div>
+                                </div>
+                            </div>
                             <h5 className='mt-4'>Dietary Restrictions</h5>
-                            <DietaryRestrictions/>
+                            <div className='container'>
+                                <div className='row'>
+                                    <div className='col-6'>
+                                        <FormControlLabel control={<Checkbox checked={isVegan} onChange={() => setIsVegan(!isVegan)}/>} className="checkbox" label="Vegan" />
+                                        <FormControlLabel control={<Checkbox checked={isGlutenFree} onChange={() => setIsGlutenFree(!isGlutenFree)}/>} className="checkbox mt-2" label="Gluten-free" />
+                                    </div>
+                                    <div className='col-6'>
+                                        <FormControlLabel control={<Checkbox checked={isVegetarian} onChange={() => setIsVegetarian(!isVegetarian)}/>} className="checkbox" label="Vegetarian" />
+                                        <FormControlLabel control={<Checkbox checked={isDairyFree} onChange={() => setIsDairyFree(!isDairyFree)}/>} className="checkbox mt-2" label="Dairy-free" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </Modal>
                 </div>

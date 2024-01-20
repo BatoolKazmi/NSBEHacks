@@ -10,14 +10,13 @@ import ToggleButton from './ToggleButton';
 const SavedRecipesPage = ({ savedRecipes, setSavedRecipes }) => {
     console.log("From saved recipes" + savedRecipes);
     return (
-        <div className='tan'>
+        <div>
             <div className='d-flex justify-content-between align-items-center pt-4 px-4'>
                 <Link to="/">
                     <FaChevronLeft size="30px"/>
                 </Link>
                 <h1 className='mx-auto'>Saved Recipes</h1>
             </div>
-            
         
             <div className='container mt-4'>
                 {savedRecipes ? (
