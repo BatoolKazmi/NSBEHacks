@@ -27,7 +27,7 @@
 }
 
 .filter-btn {
-    background-color: white;
+    text-decoration: underline;
 }
 
 .filter-btn:hover {

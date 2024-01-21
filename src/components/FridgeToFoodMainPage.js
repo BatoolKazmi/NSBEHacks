@@ -108,7 +108,6 @@ const ingredientsList = [
     { label: 'zucchini', value: 'zucchini' },
     { label: 'eggplant', value: 'eggplant' },
     { label: 'cucumber', value: 'cucumber' },
-    { label: 'radish', value: 'radish' },
     { label: 'celery', value: 'celery' },
     { label: 'asparagus', value: 'asparagus' },
     { label: 'green beans', value: 'green beans' },
@@ -182,7 +181,6 @@ const ingredientsList = [
     { label: 'capers', value: 'capers' },
     { label: 'sun-dried tomatoes', value: 'sun-dried tomatoes' },
     { label: 'anchovies', value: 'anchovies' },
-    { label: 'horseradish', value: 'horseradish' },
     { label: 'tahini', value: 'tahini' },
     { label: 'miso paste', value: 'miso paste' },
     { label: 'peanut butter', value: 'peanut butter' },
@@ -199,7 +197,7 @@ const ingredientsList = [
 const NOvegetarian = [
     'chicken', 'beef', 'pork', 'lamb', 'shellfish', 'lobster', 'shrimp', 'crab', 'clams', 'mussels', 'scallops',
     'fish', 'salmon', 'tuna', 'trout', 'halibut', 'cod', 'tilapia', 'anchovies', 'chicken broth', 'beef broth', 
-    'salami', 'ham', 'turkey'
+    'salami', 'ham', 'turkey', 'dashi'
 ]
 
 const NOvegan = [
@@ -207,7 +205,7 @@ const NOvegan = [
     'fish', 'salmon', 'tuna', 'trout', 'halibut', 'cod', 'tilapia', 'anchovies', 'chicken broth', 'beef broth', 
     'salami', 'ham', 'turkey', 'eggs', 'mayo', 'Worcestershire sauce', 'milk', 'cream', 'cheese', 'yogurt', 'sour cream', 
     'sour cream', 'cream cheese', 'cottage cheese', 'feta cheese', 'mozzarella', 'cheddar', 'parmesan', 
-    'ricotta', 'blue cheese', 'gouda', 'brie'
+    'ricotta', 'blue cheese', 'gouda', 'brie', 'dashi'
 ]
 
 const NOdairy = [
@@ -232,7 +230,6 @@ const recipes = [
         "servings":"4",
         "total":"10 mins",
         "timestamp":"2024-01-14T22:09:25Z",
-        "saved":false
     },
     {
         "url":"https://www.allrecipes.com/recipe/233761/cucumber-soup-with-tomatoes/",
@@ -253,7 +250,7 @@ const recipes = [
         "cook":"10 mins",
         "description":"Salami, lettuce, tomato, and a zesty olive mix combine in this delicious and easy salami sandwich that's perfect for a quick lunch.",
         "directions":"Step1: Place bottom bun on a plate and spread mustard over the bun. Top with salami, cheese, tomato, and lettuce leaf. Step2: Combine black olives, green olives, and salad dressing in a bowl. Place mixture on top of the lettuce. Top with remaining half of bun. Serve immediately.",
-        "images":"https://www.allrecipes.com/thmb/vuldFQTawIhbIlFvAMjWaAY3PtA=/282x188/filters:no_upscale():max_bytes(150000):strip_icc():focal(999x0:1001x2):format(webp)/4520479-avocado-breakfast-sandwich-Buckwheat-Queen-1x1-1-0c41845d9017421a86e742a0d19302d2.jpg",
+        "images":"https://www.allrecipes.com/thmb/sOYlmf7hM_YxxzrPzNnNhVUXbQI=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/1655779039Simple20Salami2036-2000-c88159c322c14e5fa04663245d13fc14.jpg",
         "ingredients":"1 hoagie bun, toasted and split, 1 teaspoon yellow mustard, 6 salami, 2 slices Colby-Jack cheese, 2 slices tomato, 1 leaf red leaf lettuce, 2 teaspoons sliced ripe olives, drained, 2 teaspoons sliced green olives with pimiento, 2 teaspoons zesty Italian-style salad dressing",
         "prep":"10 mins",
         "servings":"1",
@@ -381,7 +378,7 @@ const recipes = [
         "cook":"10 mins",
         "description":"This ham and cheese sandwich is quickly made with Swiss cheese and deli ham grilled on whole grain bread for an easy, hot sandwich perfect for lunch.",
         "directions":"Step1: Gather all ingredients. Step2: Preheat a skillet over medium-high heat. Step3: Spread one side of each slice of bread with 1 teaspoon butter. Step4: Place one slice butter-side down in the hot skillet. Top with Swiss cheese and ham. Step5: Spread the unbuttered side of second slice of bread with mayonnaise and mustard; place it butter-side up on sandwich. Step6: Cook in the hot skillet until golden brown and cheese is melted, about 3 minutes per side.",
-        "images":"https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fpublic-assets.meredithcorp.io%2Fc313149f69d532a6344ca26b26284fda%2F167029116513716702911565581838075682778372651.jpg&q=60&c=sc&orient=true&w=160&poi=auto&h=90",
+        "images":"https://www.allrecipes.com/thmb/Ranj8SFfNfW5zI_VTNmaUk5XIEA=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/214825-christys-awesome-hot-ham-and-cheese-3x4-422-copy-5e0318b2a014457f8c2d46b55a4ddee3.jpg",
         "ingredients":"2 slices whole grain bread, 2 teaspoons butter, 2 slices Swiss cheese, 2 thin slices deli ham, 1 teaspoon mayonnaise, 1 teaspoon whole grain mustard",
         "prep":"5 mins",
         "servings":"1",
@@ -490,6 +487,19 @@ const recipes = [
         "prep":"20 mins",
         "servings":"4",
         "total":"20 mins",
+        "timestamp":"2024-01-14T22:12:56Z"
+    },
+    {
+        "url":"https://www.allrecipes.com/recipe/17481/simple-white-cake/",
+        "title":"Simple White Cake",
+        "cook":"30 mins",
+        "description":"This simple cake recipe was sent home from our children's school. It is the easiest, best-tasting cake I've ever made. It's great to make with the kids, especially for cupcakes. Use your favorite frosting on top of this delicious cake.",
+        "directions":"",
+        "images":"https://www.allrecipes.com/thmb/59OSrdhzFypyNdLt3b-vw-MqSPY=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/17481-simple-white-cake-DDMFS-4x3-89bf9ff32d0c40179a3d752d4d25f22a.jpg",
+        "ingredients":"1 cup white sugar, ½ cup unsalted butter, 2 large eggs, 2 teaspoons vanilla extract, 1 ½ cups all-purpose flour, 1 ¾ teaspoons baking powder, ½ cup milk",
+        "prep":"20 mins",
+        "servings":"12",
+        "total":"40 mins",
         "timestamp":"2024-01-14T22:12:56Z"
     },
     {
@@ -738,7 +748,7 @@ const recipes = [
         "cook":"1 hr",
         "description":"These cranberry feta pinwheels with jalapeño are creamy and tangy with a little bit of sweet and a little bit of heat—a perfect appetizer and so very simple to make. Jalapeños can vary in spiciness, and they will determine the heat.",
         "directions":"Step1: Beat cream cheese and feta together in a bowl with an electric mixer until smooth. Stir in cranberries, jalapeños, walnuts, and thyme. Step2: Spread half the filling over a tortilla, leaving a 1/2-inch border around the edge. Roll up tightly and wrap tightly in plastic wrap. Repeat with remaining tortilla and filling. Refrigerate for at least 1 hour. Step3: To serve, trim the ends of the tortilla rolls, slice each roll into 1/2-inch pinwheels, and serve.",
-        "images":"https://www.allrecipes.com/thmb/UtSOaW2u182PuWfzccLcyArjN38=/282x188/filters:no_upscale():max_bytes(150000):strip_icc():focal(1999x0:2001x2):format(webp)/8362033_Cranberry-Feta-Pinwheels_Chef-Mo_4x3-3dd06972d7ef48babbf30efa6e69124c.jpg",
+        "images":"https://www.allrecipes.com/thmb/HiY5WccwRtNfv2RJ7sqcaR1F06M=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/8362250_Cranberry-Feta-Pinwheels-with-Jalapeno_Pat-Bernitt_4x3-58a67d74bb0741abaf0db596f3c22189.jpg",
         "ingredients":"8 ounces cream cheese, softened, 5 ounces feta cheese, crumbled, 1 cup dried cranberries, roughly chopped, 1/2 cup minced jalapeños, seeds and ribs removed, or to taste, 1/3 cup finely chopped walnuts, 2 teaspoons dried thyme, 2 1(0-inch) spinach flour wraps/tortillas (such as Mission®)",
         "prep":"15 mins","servings":"24","total":"1 hr 15 mins","timestamp":"2024-01-14T22:40:27Z"
     },
@@ -1014,7 +1024,7 @@ function FridgeToFoodMainPage({ savedRecipes, setSavedRecipes }) {
     // function adds new selected ingredients into the list of selected ingredients
     // and removes ingredients that are unselected 
     const handleIngredientChange = (newValue, actionMeta) => {
-        if (actionMeta.action === 'select-option' || actionMeta.action === 'remove-value') {
+        if ((actionMeta.action === 'select-option' || actionMeta.action === 'remove-value')) {
           setSelectedIngredients(newValue ? newValue.map((option) => option.value) : []);
         }
 
@@ -1192,9 +1202,12 @@ function FridgeToFoodMainPage({ savedRecipes, setSavedRecipes }) {
                             control: () => 'select-control'
                         }}
                         options={ingredientsList}
-                        value={selectedIngredient}
+                        value={selectedIngredients.map((ingredient) => ({ value: ingredient, label: ingredient }))}
                         onChange={handleIngredientChange}
-                        isClearable
+                        /* onInputChange={(inputValue) => {
+                            handleIngredientChange(inputValue);
+                        }} */
+                        isClearable={false}
                         isSearchable
                         isMulti
                         placeholder="Enter Ingredients"
